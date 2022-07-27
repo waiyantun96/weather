@@ -23,7 +23,7 @@ welcome_label = tk.Label(window,
 welcome_label.grid(row=0, column=0, sticky='N', padx=20 ,pady=10)
 
 
-def display_selected():
+def name():
     variable.get()
 
 variable = StringVar()
@@ -32,7 +32,7 @@ dropdown = OptionMenu(
     window,
     variable,
     *countries,
-    command=display_selected
+    command=name
 )
 dropdown.grid(row=2,column=0, padx=40, pady=10)
 
@@ -51,6 +51,8 @@ def some_one():
     
     textwidget = tk.Text()
     textwidget.insert(tk.END, text_response['current']['temperature'])
+    textwidget.insert(tk.END, text_response['request']['query'])
+
     textwidget.grid(row=4, column=0,padx=10,pady=30)
 
 check_button = tk.Button(text='Check Weather', command=some_one)
